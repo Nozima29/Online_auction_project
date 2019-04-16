@@ -8,7 +8,7 @@ class Category extends Model
 {
     public function lots()
     {
-        return $this->belongsToMany('App\Lot', 'lot_category', 'category_id', 'lot_id')
+        return $this->belongsToMany('App\Lot', 'category_lot', 'category_id', 'lot_id')
                     ->withTimestamps();
     }
 }
