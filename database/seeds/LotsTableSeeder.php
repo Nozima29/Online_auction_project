@@ -1,5 +1,6 @@
 <?php
 
+use App\Lot;
 use Illuminate\Database\Seeder;
 
 class LotsTableSeeder extends Seeder
@@ -11,6 +12,6 @@ class LotsTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\Lot::class, 30)->create();
+        factory(Lot::class, 30)->create();
     }
 }

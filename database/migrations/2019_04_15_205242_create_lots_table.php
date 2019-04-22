@@ -28,6 +28,9 @@ class CreateLotsTable extends Migration
             $table->dateTime('posted_at');
             $table->dateTime('expired_at');
             $table->enum('status', ['approved', 'pending', 'blocked'])->default('pending');
+            $table->integer('user_id');
+            $table->integer('highest_bid_user_id');
+            $table->integer('winner_id');
 //            $table->string('category');
 //            $table->string('payment_method');
         });
