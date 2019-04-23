@@ -11,6 +11,36 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', [				
+				'uses' => 'LotsController@recentLots',
+				'as'   => 'contents.index'
+]);
+Route::resource('news', 'NewsController');
+
+Route::resource('lots', 'LotsController');
+
+Route::get('createLots', [
+					  'uses' => 'LotsController@getCreate',
+					  'as' =>'contents.createLots'
+]);
+
+Route::post('created', [
+					'uses'=>'LotsController@store',
+					'as'=> 'contents.lots'
+]);
+
+Route::group(['prefix'=>'admin'], function(){
+	
+	Route::get('', 'PagesController@getAdmin');
+
+	Route::get('allLots', [
+					'uses'=>'PagesController@getLots',
+					'as'=>'admin.adm_lots'
+				]);
+
 });
+
+
+Auth::routes();
+Route::get('/home', 'HomeController@index')->name('home');
+
