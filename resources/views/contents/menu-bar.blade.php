@@ -48,22 +48,32 @@
 <footer class="text-center">
     <div class="row">
       <div class="col-md-6">
-        Stay Contacting us via: 
+        <h3>Stay Contacting us via: </h3>
         <a href=""><img src="facebook.png" class="icon" style="width: 30px; height: 30px;"></a>
         <a href=""><img src="instagram.png" class="icon" style="width: 30px; height: 30px;"></a>
         <a href=""><img src="twitter.png" class="icon" style="width: 30px; height: 30px;"></a>    
-        <img src="text.jpg" style="width: 100px; border-radius: 500px; margin-left: 70px;"> 
+        
+        <br><br><br>
+        <p class="text-center">Address: Tashkent city, Noname str</p>
+        <p class="text-center">Orientation: Noplace ....</p>
+        <br><br>
+        <img src="text.jpg" style="width: 100px; border-radius: 500px; ">
     </div>
-    <div class="col-md-6">
-      Contacts:  
-      <br>      
-      <div class="pannel">
-      <span class="glyphicon glyphicon-envelope">Email: bidusOnline@gmail.com</span><br>
-      <span class="glyphicon glyphicon-phone">Phone: 000-000-000-000</span>
-      </div>
+    <div class="col-md-4">
+      <p>Leave some comments: </p>     
+      
+      <input type="text" class="form-control" placeholder="Name"><br>
+      <input type="text" class="form-control" placeholder="Email"><br>
+      <input type="text" class="form-control" placeholder="Phone number"><br>
+      <textarea cols="5" rows="3" class="form-control" placeholder="comments"></textarea><br>
+      <button class="btn btn-default btn-sm">Send</button>
+    </div>
+    <div class="col-md-3">
+      
     </div>
 
 </footer>
+
 @endsection
 
 
