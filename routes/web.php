@@ -11,6 +11,13 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/aboutme', function () {
+    return view('aboutme');
 });
+Route::get('/contact', function () {
+    return view('contact_us');
+});
+Route::resource('posts', 'PostsController');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
