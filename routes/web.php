@@ -40,7 +40,13 @@ Route::group(['prefix'=>'admin'], function(){
 
 });
 
+Route::get('/aboutme', function () {
+    return view('aboutme');
+});
+Route::get('/contact', function () {
+    return view('contact_us');
+});
 
 Auth::routes();
-Route::get('/home', 'HomeController@index')->name('home');
 
+Route::get('/home', 'HomeController@index')->name('home');
