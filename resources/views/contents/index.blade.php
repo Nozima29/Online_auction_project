@@ -17,9 +17,9 @@
 					<div class="col-sm-6">
 					    <div class="thumbnail">
 					      <img src="">
-					      <p><strong>{{ $lot->lot_name }}</strong></p>
-					      <p>Product launched date {{ $lot->created_at }}</p>
-					      <p>Initial Price {{ $lot->bid_price }}$</p>
+					      <p><strong>{{ $lot->title }}</strong></p>
+					      <p>Product launched date {{ $lot->posted_at }}</p>
+					      <p>Initial Price {{ $lot->starting_price }}$</p>
 					      <button class="btn">Bid</button>
 					    </div>
 					  </div>		

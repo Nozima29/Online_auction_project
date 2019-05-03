@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Lots;
+use App\Lot;
 use DB;
 
 class LotsController extends Controller
@@ -20,13 +20,13 @@ public function getCreate(){
 
 
 public function recentLots(){
-        $lots = Lots::orderBy('id', 'desc')->paginate(6);
+        $lots = Lot::orderBy('id', 'desc')->paginate(6);
         return view('contents.index', ['lots' => $lots]);
 }
 
     public function index()
     {
-       $lots = Lots::all();
+       $lots = Lot::all();
        return view('contents.lots')->with('lots', $lots);
        
     }
@@ -80,7 +80,7 @@ public function recentLots(){
      */
     public function show($id)
     {
-        $lots = Lots::find('category', $id);
+        $lots = Lot::find('category', $id);
         return view('contents.lots')->with('category ', $lots);
     }
 

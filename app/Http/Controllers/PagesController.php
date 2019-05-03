@@ -6,13 +6,13 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use Illuminate\Session\Store;
 use App\User;
-use Lots;
+use App\Lot;
 
 class PagesController extends Controller
 {
     
     function getLots(){
-        $lots = Lots::all();
+        $lots = Lot::all();
     	return view('admin.adm_lots')->with('lots', $lots);    	
     }
 
@@ -23,6 +23,14 @@ class PagesController extends Controller
     function getAdmin(){
         $users = User::all();
     	return view('admin.adm_page')->with('users', $users);
+    }
+
+    function getAboutMe(){
+        return view('aboutme');
+    }
+
+    function getContact(){
+        return view('contact_us');
     }
 
     public function store(Request $request)
