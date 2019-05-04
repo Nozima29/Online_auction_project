@@ -8,7 +8,7 @@ use Faker\Generator as Faker;
 $factory->define(Lot::class, function (Faker $faker) {
     return [
         //        'image_url' => $faker->image('public/storage/images',400,300),
-        'title' => $faker->name(),
+        'title' => $faker->sentence($nbWords = 4),
         'description' => $faker->text(),
         'highest_bid' => $faker->numberBetween(10, 15000),
         'starting_price' => $faker->numberBetween(10, 15000),

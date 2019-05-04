@@ -12,9 +12,9 @@
 					<div class="col-sm-4">
 					    <div class="thumbnail">
 					      <img src="">
-					      <p><strong>{{ $lot->lot_name }}</strong></p>
-					      <p>Product launched date {{ $lot->created_at }}</p>
-					      <p>Initial Price {{ $lot->bid_price }}$</p>					      
+					      <p><strong>{{ $lot->title }}</strong></p>
+					      <p>Product launched date {{ $lot->posted_at }}</p>
+					      <p>Initial Price {{ $lot->starting_price }}$</p>
 					    </div>
 					    <a href="" class="btn btn-default btn-lg">Delete</a>
 					  </div>		
