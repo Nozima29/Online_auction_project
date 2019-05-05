@@ -6,6 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class News extends Model
 {
-     protected $fillable = ['news', 'place', 'created_at'];
+     protected $fillable = ['news', 'place', 'date'];
     
 }

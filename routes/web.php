@@ -38,6 +38,7 @@ Route::group(['prefix'=>'admin'], function(){
 					'as'=>'admin.adm_lots'
 				]);
 
+
 });
 
 Route::get('/aboutme', function () {
@@ -45,6 +46,12 @@ Route::get('/aboutme', function () {
 });
 Route::get('/contact', function () {
     return view('contact_us');
+});
+Route::get('/admin/news', function () {
+    return view('admin.adm_news');
+});
+Route::get('/admin/lots', function () {
+    return view('admin.adm_lots');
 });
 
 Auth::routes();
