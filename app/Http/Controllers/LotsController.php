@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use App\Lots;
 use DB;
 
@@ -50,18 +51,11 @@ public function recentLots(){
     public function store(Request $request)
     {
         
-        // $this->validate($request, [
-        //     'lot_name' => 'required|min:5',
-        //     'category' => 'required|min:10',
-        //     'bid_price' => 'required|min:15',
-        //     'created_at' => 'required|min:20'
-        // ]);
-        
-        $lots = new Lots([
-            'lot_name' => $request->input('lot_name'),
-            'category' => $request->input('category'),
-            'bid_price' => $request->input('bid_price'),                        
-            'created_at'=> $request->input('created_at')
+        $this->validate($request, [
+            'lot_name' => 'required|min:5',
+            'category' => 'required|min:10',
+            'bid_price' => 'required|min:15',
+            'created_at' => 'required|min:20'
         ]);
         
         $lots->save();

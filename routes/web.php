@@ -29,6 +29,9 @@ Route::post('created', [
 					'as'=> 'contents.lots'
 ]);
 
+Route::get('post/create', 'PostController@create');
+Route::post('post', 'PostController@store');
+
 Route::group(['prefix'=>'admin'], function(){
 	
 	Route::get('', 'PagesController@getAdmin');
