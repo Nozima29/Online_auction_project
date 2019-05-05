@@ -15,32 +15,19 @@
     <div class="collapse navbar-collapse" id="navbar-collapse-main">        
         <ul class="nav navbar-nav ml-auto">            
             <li class="list-item active"><a href="/">HOME</a></li>
-            <li class="list-item"><a href="">ABOUT AUCTION</li></a>
-            <li class="list-item"><a href="" data-toggle="dropdown" class="dropdown-toggle">LOTS
-                <span class="caret"></span></a>
-                  <ul class="dropdown-menu">
-                    @for($i=0;$i<5;$i++)
-                      <li><a href="/lots">Lots $i</a></li>
-                    @endfor
-
-                    {{-- @foreach($lots as $lot)
-                        <li><a href="{{ $lot->$category }}"></a></li>                      
-                    @endforeach                  --}}
-                  
-                  </ul>
-            </li>                
-            <li class="list-item"><a href="/news ">NEWS</li></a>
+            <li class="list-item"><a href="{{ route('aboutme') }}">ABOUT AUCTION</li></a>
+            <li class="list-item"><a href="{{ route('lots') }}">LOTS</li></a>
+            <li class="list-item"><a href="{{ route('news') }}">NEWS</li></a>
             <li class="list-item"><a href="">EVENTS</li></a>
-            <li class="list-item"><a href="">CONTACTS</li></a>   
-                
-            </ul>
+            <li class="list-item"><a href="{{ route('contact') }}">CONTACTS</li></a>
+        </ul>
         <ul class="nav navbar-nav ml-auto">
-      <li><input type="text" class="form-control" placeholder="Search" id="search"></li>
-      <li><input type="submit" class="form-control" value="Send" id="sub"></li>        
+            <li><input type="text" class="form-control" placeholder="Search" id="search"></li>
+            <li><input type="submit" class="form-control" value="Send" id="sub"></li>
 
-      <li><a href="/register"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-      <li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-    </ul>
+            <li><a href="/register"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+            <li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        </ul>
     </div>			
 </nav>
 

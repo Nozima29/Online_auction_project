@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Lot;
-use DB;
 
 class LotsController extends Controller
 {
@@ -14,21 +13,46 @@ class LotsController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-public function getCreate(){
-    return view('contents.createLots');
-}
+    public function getCreate(){
+        return view('contents.createLots');
+    }
 
 
-public function recentLots(){
-        $lots = Lot::orderBy('id', 'desc')->paginate(6);
-        return view('contents.index', ['lots' => $lots]);
-}
+    public function recentLots(){
+            $lots = Lot::orderBy('id', 'desc')->paginate(6);
+            return view('contents.index', ['lots' => $lots]);
+    }
+
+    public function getLot($id)
+    {
+        $lot = Lot::where('id', $id)->first();
+        return view('contents.lot')->with('lot', $lot);
+    }
+
+    public function postBid(Request $request)
+    {
+        $lot = Lot::find($request->input('lot_id'));
+
+        $currentHighestBid = $lot->highest_bid;
+
+        $this->validate($request, [
+            'bid_amount' => "required|gt:$currentHighestBid",
+        ]);
+
+//        if(Gate::denies('bid', $lot)){
+//            return redirect()->back();
+//        }
+
+        $lot->highest_bid = $request->input('bid_amount');
+        $lot->save();
+
+        return back()->with('info', 'Bid made, new Bid is: $' . $request->input('bid_amount'));
+    }
 
     public function index()
     {
        $lots = Lot::all();
        return view('contents.lots')->with('lots', $lots);
-       
     }
 
     /**
