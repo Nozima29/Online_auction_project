@@ -5,7 +5,8 @@
   
   <div class="panel panel-default">
     <div class="panel-body">
-
+		<h2 class="text-center">All items - Lots</h2>
+		<br>
     	<div class="row text-center">
 			{{-- <h1 class="lots_title">{{ $lots->category }}</h1> --}}
 			  @foreach($lots as $lot)
@@ -27,5 +28,4 @@
     {{--<div class="panel-body">Panel Content</div>--}}
   {{--</div>--}}
 </div>
-	
 @endsection

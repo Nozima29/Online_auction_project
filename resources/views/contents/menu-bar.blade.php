@@ -1,15 +1,10 @@
-<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-	<div class="container-fluid-right">
-        <a href="#" class="navbar-brand">
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+  <div class="container-fluid">
+	    <a href="#" class="navbar-brand">
             <img src="text.jpg" alt="Logo" style="width: 100px; border-radius: 500px; margin-top: -3px;">
         </a>
-    		<div class="navbar-header">           
-        
-           		<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-main">
-				<span class="sr-only">Toggler</span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
+    		<button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse-main">
+				<span class="navbar-toggler-icon"></span>
 			</button>
     
     <div class="collapse navbar-collapse" id="navbar-collapse-main">        
@@ -29,28 +24,40 @@
             <li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
         </ul>
     </div>			
+    </ul>
+  </div>
 </nav>
 
 @section('footer')
 <footer class="text-center">
     <div class="row">
       <div class="col-md-6">
-        Stay Contacting us via: 
+        <h3>Stay Contacting us via: </h3>
         <a href=""><img src="facebook.png" class="icon" style="width: 30px; height: 30px;"></a>
         <a href=""><img src="instagram.png" class="icon" style="width: 30px; height: 30px;"></a>
         <a href=""><img src="twitter.png" class="icon" style="width: 30px; height: 30px;"></a>    
-        <img src="text.jpg" style="width: 100px; border-radius: 500px; margin-left: 70px;"> 
+        
+        <br><br><br>
+        <p class="text-center">Address: Tashkent city, Noname str</p>
+        <p class="text-center">Orientation: Noplace ....</p>
+        <br><br>
+        <img src="text.jpg" style="width: 100px; border-radius: 500px; ">
     </div>
-    <div class="col-md-6">
-      Contacts:  
-      <br>      
-      <div class="pannel">
-      <span class="glyphicon glyphicon-envelope">Email: bidusOnline@gmail.com</span><br>
-      <span class="glyphicon glyphicon-phone">Phone: 000-000-000-000</span>
-      </div>
+    <div class="col-md-4">
+      <p>Leave some comments: </p>     
+      
+      <input type="text" class="form-control" placeholder="Name"><br>
+      <input type="text" class="form-control" placeholder="Email"><br>
+      <input type="text" class="form-control" placeholder="Phone number"><br>
+      <textarea cols="5" rows="3" class="form-control" placeholder="comments"></textarea><br>
+      <button class="btn btn-success btn-sm">Send</button>
+    </div>
+    <div class="col-md-3">
+      
     </div>
 
 </footer>
+
 @endsection
 
 

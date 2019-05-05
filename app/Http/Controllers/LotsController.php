@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+
 use App\Lot;
 
 class LotsController extends Controller
@@ -17,6 +18,12 @@ class LotsController extends Controller
         return view('contents.createLots');
     }
 
+public function search(Request $search){
+
+    $lots = Lots::where('category', $search->input('search'))->get();
+    // dd($lots);
+    return view('contents.lots',  ['lots' => $lots]);
+}
 
     public function recentLots(){
             $lots = Lot::orderBy('id', 'desc')->paginate(6);
@@ -74,18 +81,11 @@ class LotsController extends Controller
     public function store(Request $request)
     {
         
-        // $this->validate($request, [
-        //     'lot_name' => 'required|min:5',
-        //     'category' => 'required|min:10',
-        //     'bid_price' => 'required|min:15',
-        //     'created_at' => 'required|min:20'
-        // ]);
-        
-        $lots = new Lots([
-            'lot_name' => $request->input('lot_name'),
-            'category' => $request->input('category'),
-            'bid_price' => $request->input('bid_price'),                        
-            'created_at'=> $request->input('created_at')
+        $this->validate($request, [
+            'lot_name' => 'required|min:5',
+            'category' => 'required|min:10',
+            'bid_price' => 'required|min:15',
+            'created_at' => 'required|min:20'
         ]);
         
         $lots->save();
