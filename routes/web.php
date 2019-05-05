@@ -29,6 +29,11 @@ Route::post('created', [
 					'as'=> 'contents.lots'
 ]);
 
+Route::get('/search', [
+		'uses'=>'LotsController@search',
+		'as'=>'search'
+]);
+
 Route::get('post/create', 'PostController@create');
 Route::post('post', 'PostController@store');
 

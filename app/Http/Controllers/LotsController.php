@@ -19,6 +19,12 @@ public function getCreate(){
     return view('contents.createLots');
 }
 
+public function search(Request $search){
+
+    $lots = Lots::where('category', $search->input('search'))->get();
+    // dd($lots);
+    return view('contents.lots',  ['lots' => $lots]);
+}
 
 public function recentLots(){
         $lots = Lots::orderBy('id', 'desc')->paginate(6);

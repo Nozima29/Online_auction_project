@@ -1,47 +1,54 @@
-<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-	<div class="container-fluid-right">
-        <a href="#" class="navbar-brand">
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+  <div class="container-fluid">
+	    <a href="#" class="navbar-brand">
             <img src="text.jpg" alt="Logo" style="width: 100px; border-radius: 500px; margin-top: -3px;">
         </a>
-    		<div class="navbar-header">           
-        
-           		<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-main">
-				<span class="sr-only">Toggler</span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
+    		<button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse-main">
+				<span class="navbar-toggler-icon"></span>
 			</button>
     
     <div class="collapse navbar-collapse" id="navbar-collapse-main">        
-        <ul class="nav navbar-nav ml-auto">            
-            <li class="list-item active"><a href="/">HOME</a></li>
-            <li class="list-item"><a href="">ABOUT AUCTION</li></a>
-            <li class="list-item"><a href="" data-toggle="dropdown" class="dropdown-toggle">LOTS
+        <ul class="navbar-nav ml-auto">            
+            <li class="nav-item active">
+              <a href="/" class="nav-link">HOME</a>
+            </li>
+            <li class="nav-item">
+              <a href="" class="nav-link">ABOUT AUCTION</a>
+              </li>
+            <li class="nav-item">
+              <a href="" class="nav-link" data-toggle="dropdown" class="dropdown-toggle" >LOTS
                 <span class="caret"></span></a>
                   <ul class="dropdown-menu">
                     @for($i=0;$i<5;$i++)
-                      <li><a href="/lots">Lots $i</a></li>
-                    @endfor
-
-                    {{-- @foreach($lots as $lot)
-                        <li><a href="{{ $lot->$category }}"></a></li>                      
-                    @endforeach                  --}}
+                      <li><a class="dropdown-item nav-link" href="/lots">Category $i</a></li>
+                    @endfor                  
                   
                   </ul>
             </li>                
-            <li class="list-item"><a href="/news ">NEWS</li></a>
-            <li class="list-item"><a href="">EVENTS</li></a>
-            <li class="list-item"><a href="">CONTACTS</li></a>   
-                
-            </ul>
-        <ul class="nav navbar-nav ml-auto">
-      <li><input type="text" class="form-control" placeholder="Search" id="search"></li>
-      <li><input type="submit" class="form-control" value="Send" id="sub"></li>        
-
-      <li><a href="/register"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-      <li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-    </ul>
+            <li class="nav-item">
+              <a href="/news " class="nav-link">NEWS</li>
+            </a>
+            <li class="nav-item">
+              <a href="" class="nav-link">CONTACTS</li>
+              </a>                   
+        
+        <li class="nav-item">
+          <form action="{{ route('search') }}" class="form-inline md-form form-sm mt-0" method="get">            
+            <input type="text" name= "search" class="form-control form-control-sm ml-3 w-85"
+             placeholder="search" aria-label="search" value="search">
+          </li>
+          <li>
+            <button class="btn btn-dark btn-sm">Send</button>
+          </li>
+          </form>          
+          </li>
+      
+      <li class="nav-item"><a href="/register" class="nav-link"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+      <li class="nav-item"><a href="/login" class="nav-link"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+    
     </div>			
+    </ul>
+  </div>
 </nav>
 
 @section('footer')
@@ -66,7 +73,7 @@
       <input type="text" class="form-control" placeholder="Email"><br>
       <input type="text" class="form-control" placeholder="Phone number"><br>
       <textarea cols="5" rows="3" class="form-control" placeholder="comments"></textarea><br>
-      <button class="btn btn-default btn-sm">Send</button>
+      <button class="btn btn-success btn-sm">Send</button>
     </div>
     <div class="col-md-3">
       

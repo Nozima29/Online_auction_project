@@ -67,7 +67,8 @@
 @section('content')
 <body class="create_body">
 
-	<div class="container" style="padding: 50px;">
+
+	<div class="container" style="padding: 60px;">
 		<h2 class="text-center">Create New Lots</h2>
 			<div class="form-group">
 	            <form action="/createLots" onsubmit="return validateForm(this)" method="get">
@@ -86,14 +87,14 @@
 		                <input type="text" class="form-control" name="title" placeholder="title" required>
 		            </div>
 		            
-		            <div class="form-group ">
+		            <div class="form-group">
 	                        <label class="col-sm-8 control-label"><span class="ad_text"> Auction </span> Description</label>
 	                        <div class="col-sm-8">
 	                            <textarea name="description" class="form-control" id="editor" rows="8" required></textarea>	                        
 	                        </div>
 	                    </div>
 			
-		            <div class="form-group  ">
+		            <div class="form-group">
 		                <label for="price" class="col-md-8 control-label"> <span class="price_text">Set Price</span> </label>
 		                <div class="col-md-8">
 		                    <div class="input-group">
