@@ -16,9 +16,27 @@ Route::get('/', [
     'as' => 'contents.index'
 ]);
 
-Route::resource('news', 'NewsController');
+Route::get('news', [
+    'uses' => 'NewsController@index',
+    'as' => 'news'
+]);
 
-Route::resource('lots', 'LotsController');
+//Route::resource('lots', 'LotsController');
+
+Route::get('lots', [
+    'uses' => 'LotsController@index',
+    'as' => 'lots'
+]);
+
+Route::get('lots/{id}', [
+    'uses' => 'LotsController@getLot',
+    'as' => 'lots.lot'
+]);
+
+Route::post('lots/bid', [
+    'uses' => 'LotsController@postBid',
+    'as' => 'lots.lot.bid'
+]);
 
 Route::get('createLots', [
       'uses' => 'LotsController@getCreate',
