@@ -8,44 +8,21 @@
 			</button>
     
     <div class="collapse navbar-collapse" id="navbar-collapse-main">        
-        <ul class="navbar-nav ml-auto">            
-            <li class="nav-item active">
-              <a href="/" class="nav-link">HOME</a>
-            </li>
-            <li class="nav-item">
-              <a href="" class="nav-link">ABOUT AUCTION</a>
-              </li>
-            <li class="nav-item">
-              <a href="" class="nav-link" data-toggle="dropdown" class="dropdown-toggle" >LOTS
-                <span class="caret"></span></a>
-                  <ul class="dropdown-menu">
-                    @for($i=0;$i<5;$i++)
-                      <li><a class="dropdown-item nav-link" href="/lots">Category $i</a></li>
-                    @endfor                  
-                  
-                  </ul>
-            </li>                
-            <li class="nav-item">
-              <a href="/news " class="nav-link">NEWS</li>
-            </a>
-            <li class="nav-item">
-              <a href="" class="nav-link">CONTACTS</li>
-              </a>                   
-        
-        <li class="nav-item">
-          <form action="{{ route('search') }}" class="form-inline md-form form-sm mt-0" method="get">            
-            <input type="text" name= "search" class="form-control form-control-sm ml-3 w-85"
-             placeholder="search" aria-label="search" value="search">
-          </li>
-          <li>
-            <button class="btn btn-dark btn-sm">Send</button>
-          </li>
-          </form>          
-          </li>
-      
-      <li class="nav-item"><a href="/register" class="nav-link"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-      <li class="nav-item"><a href="/login" class="nav-link"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-    
+        <ul class="nav navbar-nav ml-auto">            
+            <li class="list-item active"><a href="/">HOME</a></li>
+            <li class="list-item"><a href="{{ route('aboutme') }}">ABOUT AUCTION</li></a>
+            <li class="list-item"><a href="{{ route('lots') }}">LOTS</li></a>
+            <li class="list-item"><a href="{{ route('news') }}">NEWS</li></a>
+            <li class="list-item"><a href="">EVENTS</li></a>
+            <li class="list-item"><a href="{{ route('contact') }}">CONTACTS</li></a>
+        </ul>
+        <ul class="nav navbar-nav ml-auto">
+            <li><input type="text" class="form-control" placeholder="Search" id="search"></li>
+            <li><input type="submit" class="form-control" value="Send" id="sub"></li>
+
+            <li><a href="/register"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+            <li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        </ul>
     </div>			
     </ul>
   </div>

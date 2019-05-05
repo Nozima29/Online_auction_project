@@ -20,18 +20,17 @@
 		<div class="row text-center">	
 			
 		  		@foreach($lots as $lot)
-					<div class="col-md-4">
-                            <div class="ad-box">
-                                
-                                <div class="ads-thumbnail">
-                                    <h4>{{ $lot->category }}</h4>
-                                </div>
-                                <div class="caption">
-                                    <div class="ad-box-caption-title">                                     
-                                    	<strong>{{ $lot->lot_name }}</strong><hr>
-                                    	<img src="" alt="">Place for image                                               
-                                    </div>                            
-                                </div>
+					<div class="col-sm-6">
+					    <div class="thumbnail">
+					      <img src="">
+					      <p><strong>{{ $lot->title }}</strong></p>
+					      <p>Product launched date {{ $lot->posted_at }}</p>
+					      <p>Initial Price {{ $lot->starting_price }}$</p>
+					      <button class="btn">Bid</button>
+					    </div>
+					  </div>		
+				@endforeach  
+			</div>
 
                                 <div class="ad-box-footer">
                                     <span class="ad-box-price">Starting Price {{ $lot->bid_price }}</span>
