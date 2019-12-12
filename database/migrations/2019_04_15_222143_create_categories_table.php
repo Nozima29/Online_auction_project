@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateLotsTable extends Migration
+class CreateCategoriesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,10 @@ class CreateLotsTable extends Migration
      */
     public function up()
     {
-        Schema::create('lots', function (Blueprint $table) {
-            $table-> increments('id');
-            $table-> string('lot_name');
-            $table-> string('category');
-            $table-> double('bid_price');
-            $table-> timestamps();
+        Schema::create('categories', function (Blueprint $table) {
+            $table->increments('id');
+            $table->timestamps();
+            $table->string('name');
         });
     }
 
@@ -29,6 +27,6 @@ class CreateLotsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('lots');
+        Schema::dropIfExists('categories');
     }
 }

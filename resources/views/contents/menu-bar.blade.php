@@ -1,47 +1,31 @@
-<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-	<div class="container-fluid-right">
-        <a href="#" class="navbar-brand">
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+  <div class="container-fluid">
+	    <a href="#" class="navbar-brand">
             <img src="text.jpg" alt="Logo" style="width: 100px; border-radius: 500px; margin-top: -3px;">
         </a>
-    		<div class="navbar-header">           
-        
-           		<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-main">
-				<span class="sr-only">Toggler</span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
+    		<button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse-main">
+				<span class="navbar-toggler-icon"></span>
 			</button>
     
     <div class="collapse navbar-collapse" id="navbar-collapse-main">        
         <ul class="nav navbar-nav ml-auto">            
             <li class="list-item active"><a href="/">HOME</a></li>
-            <li class="list-item"><a href="">ABOUT AUCTION</li></a>
-            <li class="list-item"><a href="" data-toggle="dropdown" class="dropdown-toggle">LOTS
-                <span class="caret"></span></a>
-                  <ul class="dropdown-menu">
-                    @for($i=0;$i<5;$i++)
-                      <li><a href="/lots">Lots $i</a></li>
-                    @endfor
-
-                    {{-- @foreach($lots as $lot)
-                        <li><a href="{{ $lot->$category }}"></a></li>                      
-                    @endforeach                  --}}
-                  
-                  </ul>
-            </li>                
-            <li class="list-item"><a href="/news ">NEWS</li></a>
+            <li class="list-item"><a href="{{ route('aboutme') }}">ABOUT AUCTION</li></a>
+            <li class="list-item"><a href="{{ route('lots') }}">LOTS</li></a>
+            <li class="list-item"><a href="{{ route('news') }}">NEWS</li></a>
             <li class="list-item"><a href="">EVENTS</li></a>
-            <li class="list-item"><a href="">CONTACTS</li></a>   
-                
-            </ul>
+            <li class="list-item"><a href="{{ route('contact') }}">CONTACTS</li></a>
+        </ul>
         <ul class="nav navbar-nav ml-auto">
-      <li><input type="text" class="form-control" placeholder="Search" id="search"></li>
-      <li><input type="submit" class="form-control" value="Send" id="sub"></li>        
+            <li><input type="text" class="form-control" placeholder="Search" id="search"></li>
+            <li><input type="submit" class="form-control" value="Send" id="sub"></li>
 
-      <li><a href="/register"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-      <li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-    </ul>
+            <li><a href="/register"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+            <li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        </ul>
     </div>			
+    </ul>
+  </div>
 </nav>
 
 @section('footer')
@@ -66,7 +50,7 @@
       <input type="text" class="form-control" placeholder="Email"><br>
       <input type="text" class="form-control" placeholder="Phone number"><br>
       <textarea cols="5" rows="3" class="form-control" placeholder="comments"></textarea><br>
-      <button class="btn btn-default btn-sm">Send</button>
+      <button class="btn btn-success btn-sm">Send</button>
     </div>
     <div class="col-md-3">
       

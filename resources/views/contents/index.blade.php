@@ -4,7 +4,7 @@
 	<div class="landing-text">
 		<h1>Bid us - online auction</h1>
 		<h3>join, play, bid, win!</h3>
-		<a href="/createLots" class="btn btn-default btn-lg" id="center">Create Lots</a>
+		<a href="/createLots" class="btn btn-dark btn-lg" id="center">Create Lots</a>
 	</div>
 </div>	
 <br><br>
@@ -15,36 +15,38 @@
 	<p><em>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati dolorum sed ducimus saepe voluptatem? Officiis eius cupiditate earum molestias esse, iste at fugiat. Ea, nesciunt facilis autem sunt numquam molestiae.</em></p>
 </div>
 	<br><br>
-	
+			<h1 class="text-center">Recent Products</h1>
+		<hr>	
 		<div class="row text-center">	
-			<h1>Recent Products</h1>
-			<hr>
+			
 		  		@foreach($lots as $lot)
 					<div class="col-sm-6">
-					    <div class="shadow p-3 mb-5 bg-white rounded">
+					    <div class="thumbnail">
 					      <img src="">
-					      <div class="card" style="width: 18rem;">
-							  <img class="card-img-top" src="..." alt="Card image cap">
-							  <div class="card-body">
-							    <h5 class="card-title">{{ $lot->lot_name }}</h5>
-							    <p class="card-text">{{ $lot->created_at }}</p>
-					      		<p>Initial Price {{ $lot->bid_price }}$</p>											
-							    <a href="#" class="btn btn-primary">Bid</a>
-							  </div>
-							</div>
-					    
-					      {{-- <p><strong>{{ $lot->lot_name }}</strong></p>
-					      <p>Product launched date {{ $lot->created_at }}</p>
-					      <p>Initial Price {{ $lot->bid_price }}$</p>
-					      <p id="demo">Time left</p>
-					      <script>
-					      	var timeLeft = $lot->(created_at-
-					      	var countDate = new Date()
-					      </script>
-					      <button class="btn" id="bid">Bid</button> --}}
-					    
+					      <p><strong>{{ $lot->title }}</strong></p>
+					      <p>Product launched date {{ $lot->posted_at }}</p>
+					      <p>Initial Price {{ $lot->starting_price }}$</p>
+					      <button class="btn">Bid</button>
 					    </div>
 					  </div>		
+				@endforeach  
+			</div>
+
+                                <div class="ad-box-footer">
+                                    <span class="ad-box-price">Starting Price {{ $lot->bid_price }}</span>
+	                                   <span class="ad-box-price">Time left: {{ $lot->created_at }}</span>
+			                            <div class="ad-box-premium" data-toggle="tooltip" title="Premium Ad">
+			                            <img src="" alt="" />
+                                        </div>
+                                </div>
+
+                                <div class="countdown" data-expire-date="2020-09-09" ></div>
+                                <div class="place-bid-btn">
+                                    <a class="btn btn-primary">Bid</a>
+                                </div>
+
+                            </div>
+                        </div>
 				@endforeach  
 			</div> 		
   		</div>

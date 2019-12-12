@@ -36,4 +36,25 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function lots()
+    {
+        return $this->hasMany('App\Lot');
+    }
+
+    public function highestBidLots()
+    {
+        return $this->hasMany('App\Lot');
+    }
+
+    public function winnedLots()
+    {
+        return $this->hasMany('App\Lot');
+    }
+
+    public function favoriteLots()
+    {
+        return $this->belongsToMany('App\Lot', 'lot_user', 'user_id', 'lot_id')
+                    ->withTimestamps();
+    }
 }
