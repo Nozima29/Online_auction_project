@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Lots;
-use DB;
+
+use App\Lot;
 
 class LotsController extends Controller
 {
@@ -14,21 +14,52 @@ class LotsController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-public function getCreate(){
-    return view('contents.createLots');
+    public function getCreate(){
+        return view('contents.createLots');
+    }
+
+public function search(Request $search){
+
+    $lots = Lots::where('category', $search->input('search'))->get();
+    // dd($lots);
+    return view('contents.lots',  ['lots' => $lots]);
 }
 
+    public function recentLots(){
+            $lots = Lot::orderBy('id', 'desc')->paginate(6);
+            return view('contents.index', ['lots' => $lots]);
+    }
 
-public function recentLots(){
-        $lots = Lots::orderBy('id', 'desc')->paginate(6);
-        return view('contents.index', ['lots' => $lots]);
-}
+    public function getLot($id)
+    {
+        $lot = Lot::where('id', $id)->first();
+        return view('contents.lot')->with('lot', $lot);
+    }
+
+    public function postBid(Request $request)
+    {
+        $lot = Lot::find($request->input('lot_id'));
+
+        $currentHighestBid = $lot->highest_bid;
+
+        $this->validate($request, [
+            'bid_amount' => "required|gt:$currentHighestBid",
+        ]);
+
+//        if(Gate::denies('bid', $lot)){
+//            return redirect()->back();
+//        }
+
+        $lot->highest_bid = $request->input('bid_amount');
+        $lot->save();
+
+        return back()->with('info', 'Bid made, new Bid is: $' . $request->input('bid_amount'));
+    }
 
     public function index()
     {
-       $lots = Lots::all();
+       $lots = Lot::all();
        return view('contents.lots')->with('lots', $lots);
-       
     }
 
     /**
@@ -47,29 +78,33 @@ public function recentLots(){
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function createLot(Request $request)
     {
         
-        // $this->validate($request, [
-        //     'lot_name' => 'required|min:5',
-        //     'category' => 'required|min:10',
-        //     'bid_price' => 'required|min:15',
-        //     'created_at' => 'required|min:20'
-        // ]);
-        
-        $lots = new Lots([
-            'lot_name' => $request->input('lot_name'),
-            'category' => $request->input('category'),
-            'bid_price' => $request->input('bid_price'),                        
-            'created_at'=> $request->input('created_at')
+        $this->validate($request, [
+            'title' => 'bail|required|min:5',
+            'category' => 'required|min:10',
+            'description' => 'bail|required|min:5',
+            'price' => 'required|regex:[^a-zA-Z]',
+            'deadline' => 'required|date',
+            'images[]' => 'image',
+            'country'=>'min:4|regex:[^1-9]',
+            'client-city'=>'min:4|regex:[^1-9]',
+            'client-name'=>'min:4|regex:[^1-9]',
+            'client-mail'=>'min:4',
+            'client-phone'=>'min:4',
+            'client-address'=>'min:4',
+            'created_at' => 'required|date'
+
         ]);
         
-        $lots->save();
+        
+        //$lots->save();
         //Auth::user()->posts()->save($post);   
         //$post->tags()->attach($request->input('tags') === null ? [] : $request->input('tags'));
-
-        return redirect()->route('contents.lots');     
-
+        return redirect ()
+        ->route ('admin . index ')
+        ->with ('info ', 'Post created , Title is: '.$request -> input ('title '));
     }
 
     /**
@@ -80,7 +115,7 @@ public function recentLots(){
      */
     public function show($id)
     {
-        $lots = Lots::find('category', $id);
+        $lots = Lot::find('category', $id);
         return view('contents.lots')->with('category ', $lots);
     }
 

@@ -11,29 +11,68 @@
 |
 */
 
-Route::get('/', [				
-				'uses' => 'LotsController@recentLots',
-				'as'   => 'contents.index'
-]);
-Route::resource('news', 'NewsController');
 
-Route::resource('lots', 'LotsController');
+Route::get('/', [				
+    'uses' => 'LotsController@recentLots',
+    'as' => 'contents.index'
+]);
+
+Route::get('news', [
+    'uses' => 'NewsController@index',
+    'as' => 'news'
+]);
+
+Route::get('lots', [
+    'uses' => 'LotsController@index',
+    'as' => 'lots'
+]);
+
+Route::get('lots/{id}', [
+    'uses' => 'LotsController@getLot',
+    'as' => 'lots.lot'
+]);
+
+Route::post('lots/bid', [
+    'uses' => 'LotsController@postBid',
+    'as' => 'lots.lot.bid'
+]);
 
 Route::get('createLots', [
-					  'uses' => 'LotsController@getCreate',
-					  'as' =>'contents.createLots'
+      'uses' => 'LotsController@getCreate',
+      'as' => 'contents.createLots'
+]);
+
+
+Route::post('auth.register', [
+	'uses' => 'RegisController@checkRegis',
+	'as' =>'auth.register'
+]);
+
+Route::post('createLots', [
+	'uses' => 'LotsController@createLot',
+	'as' =>'contents.createLots'
 ]);
 
 Route::post('created', [
-					'uses'=>'LotsController@store',
-					'as'=> 'contents.lots'
+    'uses' => 'LotsController@store',
+    'as' => 'contents.lots'
 ]);
+
+Route::get('/search', [
+		'uses'=>'LotsController@search',
+		'as'=>'search'
+]);
+
+Route::get('post/create', 'PostController@create');
+
+Route::post('post', 'PostController@store');
 
 Route::group(['prefix'=>'admin'], function(){
 	
 	Route::get('', 'PagesController@getAdmin');
 
 	Route::get('allLots', [
+
 					'uses'=>'PagesController@getLots',
 					'as'=>'admin.adm_lots'
 				]);
@@ -53,6 +92,22 @@ Route::get('/admin/news', function () {
 Route::get('/admin/lots', function () {
     return view('admin.adm_lots');
 });
+
+        'uses' => 'PagesController@getLots',
+        'as' => 'admin.adm_lots'
+    ]);
+});
+
+Route::get('/aboutme', [
+    'uses' => 'PagesController@getAboutMe',
+    'as' => 'aboutme'
+]);
+
+Route::get('/contact', [
+    'uses' => 'PagesController@getContact',
+    'as' => 'contact'
+]);
+
 
 Auth::routes();
 

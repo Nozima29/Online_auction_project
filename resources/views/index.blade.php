@@ -1,5 +1,12 @@
 @extends('layouts.main')
 @section('content')
+	@if ( Session :: has ('info '))
+		<div class =" row ">
+			<div class ="col -md -12 ">
+				<p class =" alert alert - info " >{{ Session :: get('info ') }} </p>
+			</div >
+		</div >
+	@endif
 <div class="container">
 	<div id="myCarousel" class="carousel slide" data-ride="carousel">
 		  <!-- Indicators -->

@@ -5,13 +5,14 @@
 	@if(count($news)>0)
 		<h1>News</h1>
 			@foreach($news as $new)
-				<div class="well">
-					<h3>
-						{{ $new->place}}
-					</h3>
-					<p>{{ $new->news}}</p>
-					<small>Date {{ $new->created_at}}</small>						
+				<div class="ad-box" style="padding: 10px;"> 
+					<h3>					
+							{{ $new->place}}
+							</h3>
+							<p>{{ $new->news}}</p>
+							<small>Date {{ $new->created_at}}</small>						
 				</div>
+				<hr>				
 			@endforeach	
 			{{ $news->links() }}
 		@else
