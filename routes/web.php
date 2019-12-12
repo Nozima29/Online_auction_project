@@ -72,6 +72,27 @@ Route::group(['prefix'=>'admin'], function(){
 	Route::get('', 'PagesController@getAdmin');
 
 	Route::get('allLots', [
+
+					'uses'=>'PagesController@getLots',
+					'as'=>'admin.adm_lots'
+				]);
+
+
+});
+
+Route::get('/aboutme', function () {
+    return view('aboutme');
+});
+Route::get('/contact', function () {
+    return view('contact_us');
+});
+Route::get('/admin/news', function () {
+    return view('admin.adm_news');
+});
+Route::get('/admin/lots', function () {
+    return view('admin.adm_lots');
+});
+
         'uses' => 'PagesController@getLots',
         'as' => 'admin.adm_lots'
     ]);
@@ -86,6 +107,7 @@ Route::get('/contact', [
     'uses' => 'PagesController@getContact',
     'as' => 'contact'
 ]);
+
 
 Auth::routes();
 

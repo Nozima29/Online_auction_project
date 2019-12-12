@@ -6,7 +6,10 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use Illuminate\Session\Store;
 use App\User;
+use Lots;
+use News;
 use App\Lot;
+
 
 class PagesController extends Controller
 {
@@ -17,7 +20,8 @@ class PagesController extends Controller
     }
 
     function getNews(){
-    	return view('contents.news');
+        $news=News::all();
+    	return view('admin.adm_news')->with('news', $news);
     }
 
     function getAdmin(){

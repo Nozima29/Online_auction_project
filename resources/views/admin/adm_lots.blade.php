@@ -7,7 +7,6 @@
     <div class="panel-body">
 
     	<div class="row text-center">
-			{{-- <h1 class="lots_title">{{ $lots->category }}</h1> --}}
 			  @foreach($lots as $lot)
 					<div class="col-sm-4">
 					    <div class="thumbnail">
@@ -28,3 +27,4 @@
 </div>
 	
 @endsection
+

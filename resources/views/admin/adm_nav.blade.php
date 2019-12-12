@@ -1,29 +1,30 @@
-<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-	<div class="container-fluid-right">
-        <a href="#" class="navbar-brand">
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark justify-content-between">
+           
+        <ul class="navbar-nav">
+        <li class="nav-item"> <a href="#" class="navbar-brand">
             <img src="text.jpg" alt="Logo" style="width: 100px; border-radius: 500px; margin-top: -3px;">
-        </a>
-    		<div class="navbar-header">                   
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-main">
-  				<span class="sr-only">Toggler</span>
-  				<span class="icon-bar"></span>
-  				<span class="icon-bar"></span>
-  				<span class="icon-bar"></span>
-			    </button>
-    
-    <div class="collapse navbar-collapse" id="navbar-collapse-main">        
-        <ul class="nav navbar-nav ml-auto">            
-            <li class="list-item"><a href="">EDIT ABOUT</li></a>
-            <li class="list-item"><a href="/admin/allLots" data-toggle="dropdown" class="dropdown-toggle">All LOTS</li></a>               <li class="list-item"><a href="">ADD NEWS</li></a>
-            <li class="list-item"><a href="">ADD EVENTS</li></a>
-            <li class="list-item"><a href="/admin">USERS</a></li>   
-            </ul>
-        <ul class="nav navbar-nav navbar-right">
-      <li><a href="#"><span class="glyphicon glyphicon-user"></span>Sign out</a></li>
-      <li><input type="text" class="form-control" placeholder="Search" id="search"></li>
-      <li><input type="submit" class="form-control" value="Send" id="sub"></li>        
-    </ul>
-    </div>			
+        </a></li>              
+           <li class="nav-item">
+      <a class="nav-link" href="#">Edit about</a>
+    </li>
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" href="/admin/allLots" id="navbardrop" data-toggle="dropdown">
+        All lots
+      </a>
+      <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+        <a class="dropdown-item" href="#">Link 1</a>
+        <a class="dropdown-item" href="#">Link 2</a>
+        <a class="dropdown-item" href="#">Link 3</a>
+      </div>
+    </li>       
+    <li class="nav-item"><a class="nav-link" href="/admin/news">Add news</a></li>
+  <li class="nav-item"><a class="nav-link" href="#">Users</a></li>  
+            </ul>     
+    <form class="form-inline">
+    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit"style='color:grey'><ion-icon name="search" ></ion-icon></button>
+  </form>
+  <span><a href="#"><ion-icon name="contact" style="font-size:28px;"></ion-icon></a></span>
 </nav>
 
 
@@ -45,19 +46,4 @@
 
 
 
-{{-- <nav class="navbar navbar-style">
-    <div class="container">
-        <div class="navbar-header">
-            <a href="{ route('blog.index')}" class="navbar-brand">Menu</a>
-            <ul class="nav navbar-nav">
-                <li class=""><a href="{ route('blog.index')}">Home</a></li>
-                <li><a href="{ route('other.about')}">About auction</a></li>
-                <li><a href="{ route('other.about')}">Poducts</a></li>
-                <li><a href="{ route('other.about')}">Sales</a></li>
-                <li><a href="{ route('other.about')}">Contants</a></li>
-            </ul>
-        </div>
-    </div>
-</nav>
- --}}
 
