@@ -78,22 +78,33 @@ public function search(Request $search){
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function createLot(Request $request)
     {
         
         $this->validate($request, [
-            'lot_name' => 'required|min:5',
+            'title' => 'bail|required|min:5',
             'category' => 'required|min:10',
-            'bid_price' => 'required|min:15',
-            'created_at' => 'required|min:20'
+            'description' => 'bail|required|min:5',
+            'price' => 'required|regex:[^a-zA-Z]',
+            'deadline' => 'required|date',
+            'images[]' => 'image',
+            'country'=>'min:4|regex:[^1-9]',
+            'client-city'=>'min:4|regex:[^1-9]',
+            'client-name'=>'min:4|regex:[^1-9]',
+            'client-mail'=>'min:4',
+            'client-phone'=>'min:4',
+            'client-address'=>'min:4',
+            'created_at' => 'required|date'
+
         ]);
         
-        $lots->save();
+        
+        //$lots->save();
         //Auth::user()->posts()->save($post);   
         //$post->tags()->attach($request->input('tags') === null ? [] : $request->input('tags'));
-
-        return redirect()->route('contents.lots');     
-
+        return redirect ()
+        ->route ('admin . index ')
+        ->with ('info ', 'Post created , Title is: '.$request -> input ('title '));
     }
 
     /**

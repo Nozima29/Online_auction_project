@@ -11,6 +11,7 @@
 |
 */
 
+
 Route::get('/', [				
     'uses' => 'LotsController@recentLots',
     'as' => 'contents.index'
@@ -39,6 +40,17 @@ Route::post('lots/bid', [
 Route::get('createLots', [
       'uses' => 'LotsController@getCreate',
       'as' => 'contents.createLots'
+]);
+
+
+Route::post('auth.register', [
+	'uses' => 'RegisController@checkRegis',
+	'as' =>'auth.register'
+]);
+
+Route::post('createLots', [
+	'uses' => 'LotsController@createLot',
+	'as' =>'contents.createLots'
 ]);
 
 Route::post('created', [
